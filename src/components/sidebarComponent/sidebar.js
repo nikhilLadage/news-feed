@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {
   Link
 } from 'react-router-dom';
-
+import $ from 'jquery';
 class Sidebar extends Component {
   constructor(props){
     super();
@@ -26,44 +26,58 @@ class Sidebar extends Component {
     })
   }
   render() {
-    //$(".button-collapse").sideNav();
     return (
-      <div class="row show-on-large" id="">
-      <form class="col s12">
-        <div class="row">
-          <div class="input-field col s12">
-              <div class="col s10">
-                  <input placeholder="Search" id="icon_prefix" type="text" class="validate"/>
+      <div class="row show-on-large show-on-medium-and-down m-t-xs" id="sidebar">
+          <form class="col s12">
+            <div class="row">
+              <div class="input-field col s12">
+                  <div class="col s10">
+                      <input placeholder="Search" id="icon_prefix" type="text" class="validate"/>
+                  </div>
+                  <div class="col s2" id="searchKeyword">
+                    <a class="btn-floating btn-medium waves-effect pink darken-1"><i class="material-icons">search</i></a>
+                  </div>
               </div>
-              <div class="col s2" id="searchKeyword">
-                <a class="btn-floating btn-medium waves-effect pink darken-1"><i class="material-icons">search</i></a>
-              </div>
+            </div>
+          </form>
+          <div class="p-sm center">
+              <h5 class="fontColor fontBold">TOP NEWS</h5>
           </div>
-        </div>
-      </form>
-      <div class="p-sm center">
-          <h5 class="fontColor fontBold">TOP NEWS</h5>
-      </div>
-      {
-        this.state.articles.map((article, key) =>
-          <div class="row">
-              <div class="divider"></div>
-              <div class="section">
-                  <div class="col s12">
-                      <div class="col s3 p-n p-l-xs">
-                        <img class="responsive-img sidebarImage" src={article.urlToImage}/>
-                      </div>
-                      <div class="col s9">
-                        <h6 class="header fontBold">{article.title}</h6>
-                        <div class="card-content">
-                          <h6><small>by  {article.author}</small></h6>
-                        </div>
+          {
+            this.state.articles.map((article, key) =>
+              <div class="row">
+                  <div class="divider"></div>
+                  <div class="section">
+                      <div class="col s12">
+                          <div class="col s3 p-n p-l-xs">
+                            <img class="responsive-img sidebarImage" src={article.urlToImage}/>
+                          </div>
+                          <div class="col s9">
+                            <h6 class="header fontBold">{article.title}</h6>
+                            <div class="card-content">
+                              <h6><small>by  {article.author}</small></h6>
+                            </div>
+                          </div>
                       </div>
                   </div>
               </div>
+            )
+          }
+          <div class="p-sm center">
+              <h5 class="fontColor fontBold">VIDEOS</h5>
           </div>
-        )
-      }
+          <div class="col s12 p-n">
+              <iframe class="col s12 p-n responsive-img" src='http://abcnews.go.com/video/embed?id=50897558'></iframe>
+          </div>
+          <div class="col s12 p-n">
+              <iframe class="col s12 p-n responsive-img" src='http://abcnews.go.com/video/embed?id=50897556'></iframe>
+          </div>
+          <div class="col s12 p-n">
+              <iframe class="col s12 p-n responsive-img" src='http://abcnews.go.com/video/embed?id=50897557'></iframe>
+          </div>
+          <div class="col s12 p-n">
+              <iframe class="col s12 p-n responsive-img" src='http://abcnews.go.com/video/embed?id=50897555'></iframe>
+          </div>
       </div>
     );
   }

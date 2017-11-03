@@ -26,19 +26,22 @@ class HotNews extends Component {
   render() {
         return (
           <div class="news pink darken-1">
-          <span class="p-t-n hide-on-med-and-down">HOT NEWS</span>
-          <span class="p-t-n hide-on-med-and-up"><i class="material-icons">whatshot</i></span>
-            <ul>
-          {
-          this.state.articles.map((article, key) =>
-            <li><a href="#">{article.title}</a></li>
-
-          )
-         }
-            </ul>
+              <span class="p-t-n hide-on-med-and-down">HOT NEWS</span>
+              <span class="p-t-n hide-on-med-and-up show-on-medium-and-down">
+                  <i class="material-icons">whatshot</i>
+              </span>
+              <ul>
+                {
+                  this.state.articles.map((article, key) =>
+                    <li class="m-l-md">
+                        <a href="#">{article.title}</a>
+                    </li>
+                  )
+                 }
+              </ul>
          </div>
        );
-  }
+    }
 }
 
 

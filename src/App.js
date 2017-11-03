@@ -10,13 +10,12 @@ import Header from './components/headerComponents/header';
 import Footer from './components/footerComponents/footer';
 import Sidebar from './components/sidebarComponent/sidebar';
 import HomePage from './components/pages/homePage';
-import FeaturedNews from './components/pages/featuredNews';
-import Trending from './components/pages/trendingNews';
+import Popular from './components/pages/popular';
 import HotNews from './components/pages/hotNews';
+import NewsGrid from './components/pages/newsGrid';
 //includes
 import './Assets/css/default.min.css';
 import './Assets/css/margins.min.css';
-import $ from 'jquery';
 
 class App extends Component {
   render() {
@@ -26,18 +25,16 @@ class App extends Component {
           <Header/>
               <div class="col s12">
                   <HotNews />
+                  <NewsGrid />
               </div>
               <div class="row">
                   <div id="newsPage" class="col s12 m9">
-                      <Trending />
-                      <Route exact path='/' component={HomePage} />
+                      <Popular />
+                      <HomePage />
                   </div>
                   <div class="col s12 m3">
                       <Sidebar/>
                   </div>
-              </div>
-              <div class="row">
-                    <FeaturedNews/>
               </div>
           <Footer/>
         </div>
